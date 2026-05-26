@@ -12,7 +12,7 @@ def detect_emotion():
         f"For the given statement, the system response is 'anger': {response["anger"]}, " 
         f"'disgust': {response["disgust"]}, 'fear': {response["fear"]}, 'joy': {response["joy"]} "
         f"and 'sadness': {response["sadness"]}. The dominant emotion is <b>{response["dominant_emotion"]}</b>"
-        )
+    )
     return fmt_response
 
 

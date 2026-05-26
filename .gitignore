@@ -130,3 +130,6 @@ dmypy.json
 
 # submission
 /submission
+
+# others
+.vscode/
