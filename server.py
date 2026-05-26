@@ -8,7 +8,12 @@ app = Flask("Emotion Detector")
 def detect_emotion():
     text_to_analyze = request.args.get("textToAnalyze")
     response = emotion_detector(text_to_analyze)
-    return response
+    fmt_response = (
+        f"For the given statement, the system response is 'anger': {response["anger"]}, " 
+        f"'disgust': {response["disgust"]}, 'fear': {response["fear"]}, 'joy': {response["joy"]} "
+        f"and 'sadness': {response["sadness"]}. The dominant emotion is <b>{response["dominant_emotion"]}</b>"
+        )
+    return fmt_response
 
 
 @app.route("/")
