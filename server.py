@@ -17,6 +17,13 @@ def detect_emotion():
     '''
     text_to_analyze = request.args.get("textToAnalyze")
     response = emotion_detector(text_to_analyze)
+    
+    if type(response) == str:
+        return response
+    else: # is a dictionary
+        if response["dominant_emotion"] == None:
+            return "Invalid text! Please try again!"
+    
     fmt_response = (
         f"For the given statement, the system response is 'anger': {response['anger']}, " 
         f"'disgust': {response['disgust']}, 'fear': {response['fear']}, 'joy': {response['joy']} "
@@ -24,7 +31,6 @@ def detect_emotion():
         f"<b>{response['dominant_emotion']}.</b>"
     )
     return fmt_response
-
 
 @app.route("/")
 def render_index_page():
